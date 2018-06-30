@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="TestAll">
+    <test name="final">
+        <!--如果配置Class路径 会执行对应Class下面的所有方法。-->
+        <parameter name="xx" value="db.properties" />
+        <parameter name="yy" value="10" />
+
+        <classes>
+            <!--<class name="test.GroupDemo"> -->
+            <class name="test.TestParaDemo">
+                <methods>
+                    <include name="test"/>
+                </methods>
+            </class>
+        </classes>
+
+        <!--如果配置包路径 会执行包下面的所有方法。-->
+        <!--<packages>-->
+            <!--<package name="test"-->
+        <!--</packages>-->
+    </test>
+
+    <!--分组测试文件配置-->
+    <test name="selenium">
+        <groups>
+            <run>
+                <!--引用Test类中的分组名称的group名称  如：@Test(groups = "function-test")  -->
+                <include name="function-test" />
+            </run>
+        </groups>
+        <classes>
+            <class name="test.GroupDemo" />
+        </classes>
+    </test>
+</suite>
